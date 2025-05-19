@@ -4,6 +4,7 @@ import ExperienceSection from '@/components/experience';
 
 import ProjectsSection from '@/components/projectSection';
 
+import SkillsSection from '@/components/skills';
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
       <Hero />
       <ExperienceSection />
       <ProjectsSection />
+      <SkillsSection />
+      
 
     </main>
   );

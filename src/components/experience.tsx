@@ -35,7 +35,7 @@ export default function ExperienceSection() {
       py-1 px-3
       transition
       ${tab === "work"
-        ? "bg-black text-white rounded-l-md"
+        ? "bg-black text-white rounded-l-md rounded-r-md"
         : "bg-transparent text-gray-300 hover:text-white"}
     `}
   >
@@ -49,7 +49,7 @@ export default function ExperienceSection() {
       py-1 px-3
       transition
       ${tab === "education"
-        ? "bg-black text-white rounded-r-md"
+        ? "bg-black text-white rounded-r-md rounded-l-md"
         : "bg-transparent text-gray-300 hover:text-white"}
     `}
   >
