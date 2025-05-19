@@ -1,6 +1,7 @@
 import Hero from '../components/hero';
 import Navbar from '@/components/navbar';
 import ExperienceSection from '@/components/experience';
+import SkillsSection from '@/components/skills';
 
 export default function Home() {
   return (
@@ -8,6 +9,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ExperienceSection />
+      <SkillsSection />
+      
 
     </main>
   );
