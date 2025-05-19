@@ -92,7 +92,7 @@ export default function ExperienceSection() {
         {/* if you want a placeholder when empty */}
         {items.length === 0 && (
           <p className="text-gray-500 text-center italic">
-            No entries yet — fill these in when you have them!
+            
           </p>
         )}
       </div>
