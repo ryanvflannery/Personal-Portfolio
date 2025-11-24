@@ -1,0 +1,19 @@
+{
+  "socials": [
+    {
+      "name": "LinkedIn",
+      "href": "https://www.linkedin.com/in/ryan-flannery6980/",
+      "icon": "linkedin"
+    },
+    {
+      "name": "GitHub",
+      "href": "https://github.com/ryanvflannery",
+      "icon": "github"
+    },
+    {
+      "name": "Email",
+      "href": "mailto:ryanvflannery@gmail.com",
+      "icon": "mail"
+    }
+  ]
+}

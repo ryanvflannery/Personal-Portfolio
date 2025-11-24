@@ -1,0 +1,29 @@
+{
+  "education": [
+    {
+      "name": "San Francisco State University",
+      "href": "https://www.sfsu.edu/",
+      "title": "BS in Computer Science",
+      "logo": "/sfsu.webp",
+      "start": "August 2021",
+      "end": "May 2025",
+      "description": [
+        "Graduated with a Minor in Computing Applications",
+        "Genentech Machine Learning and Data Science Certificatied",
+        "6-time recipient of the Dean's Honor List"
+      ],
+      "links": [
+        {
+          "name": "Final Year Project",
+          "href": "https://games.digipen.edu/games/rapid-ride-fight",
+          "icon": "globe"
+        },
+        {
+          "name": "2nd Year Project",
+          "href": "https://games.digipen.edu/games/glowing-under",
+          "icon": "globe"
+        }
+      ]
+    }
+  ]
+}
