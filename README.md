@@ -29,10 +29,6 @@ A clean, minimal portfolio website built with Next.js, Tailwind CSS, and Shadcn 
 - Upstash (caching)
 - Resend (email)
 
-## Deployment
-
-Deployed to Vercel
-
 ## License
 
 MIT
