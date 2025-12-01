@@ -10,22 +10,10 @@
       "description": [
         "Implemented Metric and Unit Tests for readings retrieval API. Refactored kWh to MJ conversion logic, improving website data visualization, reducing API errors by 50%, and enhancing data accuracy by 20%",
         "Co-authored a merged pull request (#1095) in the Open Energy Dashboard, optimizing code for a platform with over 20,000 active users, contributing to more accurate data and system efficiency"
-      ]
-    },
-    {
-      "name": "Singapore Institute of Technology",
-      "href": "https://www.singaporetech.edu.sg",
-      "title": "Software Developer (Contract)",
-      "logo": "/sit.png",
-      "start": "Apr 2023",
-      "end": "Jun 2023",
-      "description": [
-        "Built NFTVue, a NFT gallery website that allows students to connect their crypto wallets to view and verify their school event-issued NFTs",
-        "Co-authored a merged pull request (#1095) in the Open Energy Dashboard, optimizing code for a platform with over 20,000 active users, contributing to more accurate data and system efficiency"
       ],
       "links": [
         {
-          "name": "NFTVue",
+          "name": "OED",
           "href": "https://nftvue.vercel.app",
           "icon": "globe"
         }
