@@ -119,12 +119,12 @@ const cardData: Card[] = [
   /*
   {
     id: 1,
-    url: "/ted-2019.jpg",
-  },
+    url: "grad-2025 (2).jpg",
+  },*/
   {
     id: 2,
-    url: "/ted-2024.jpg",
-  },*/
+    url: "/grad-2025.jpg",
+  },
   {
     id: 3,
     url: "/ryan.jpg",
