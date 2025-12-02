@@ -7,7 +7,8 @@ A clean, minimal portfolio website built with Next.js, Tailwind CSS, and Shadcn 
 
 🌐 Check it out here: ****
 
-![Portfolio Screenshot]()
+![Portfolio Screenshot](<img width="1902" height="947" alt="Portfolio-Screenshot" src="https://github.com/user-attachments/assets/f91fba58-627f-4332-8175-2292f7858044" />)
+
 
 ## Features
 
