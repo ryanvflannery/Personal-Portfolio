@@ -34,7 +34,7 @@ export default async function Home() {
 
           <p className="mt-2 whitespace-nowrap text-sm font-medium sm:text-base">
             {new Date().getFullYear() - Ryan_BIRTH_YEAR}
-            yo software engineer from Los Angeles CA
+            yo software engineer based in San Francisco, CA
           </p>
 
           <p className="mt-4 max-w-sm text-balance text-sm sm:text-base">
