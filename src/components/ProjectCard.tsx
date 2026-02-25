@@ -23,16 +23,31 @@ export function ProjectCard({ project }: Props) {
     <Card className="flex flex-col">
       <CardHeader>
         {image && (
-          <Link href={href || image}>
-            <Image
-              src={image}
-              alt={name}
-              width={500}
-              height={300}
-              className="h-40 w-full object-cover object-top"
-            />
-          </Link>
-        )}
+  <Link href={href || image}>
+    {name === "ZenZone" ? (
+      <div className="h-40 w-full overflow-hidden rounded-lg bg-gradient-to-b from-[#0b1220] to-[#020617]">
+        <div className="flex h-full w-full items-center justify-center p-2">
+          <Image
+            src={image}
+            alt={name}
+            width={500}
+            height={900}
+            className="h-full w-auto object-contain scale-110 drop-shadow-2xl"
+            priority={false}
+          />
+        </div>
+      </div>
+    ) : (
+      <Image
+        src={image}
+        alt={name}
+        width={500}
+        height={300}
+        className="h-40 w-full object-cover object-top"
+      />
+    )}
+  </Link>
+)}
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <CardTitle>{name}</CardTitle>
