@@ -5,8 +5,6 @@ import { Resend } from "resend";
 import { z } from "zod";
 import { ContactFormSchema } from "./schemas";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 type ContactFormInputs = z.infer<typeof ContactFormSchema>;
 
 export async function sendEmail(data: ContactFormInputs) {
@@ -16,8 +14,18 @@ export async function sendEmail(data: ContactFormInputs) {
     return { error: result.error.format() };
   }
 
+  const apiKey = process.env.RESEND_API_KEY;
+
+  // 🟢 Prevent runtime crash
+  if (!apiKey) {
+    return { error: "Email service not configured." };
+  }
+
+  const resend = new Resend(apiKey);
+
   try {
     const { name, email, message } = result.data;
+
     const { data, error } = await resend.emails.send({
       from: "Ryan Portfolio <contact@ryanvflannery.dev>",
       to: "ryanvflannery@gmail.com",
@@ -25,7 +33,6 @@ export async function sendEmail(data: ContactFormInputs) {
       cc: [email],
       subject: `New message from ${name}!`,
       text: `Name:\n${name}\n\nEmail:\n${email}\n\nMessage:\n${message}`,
-      // react: ContactFormEmail({ name, email, message }),
     });
 
     if (!data || error) {
@@ -35,6 +42,6 @@ export async function sendEmail(data: ContactFormInputs) {
 
     return { success: true };
   } catch (error) {
-    return { error };
+    return { error: "Something went wrong sending the email." };
   }
 }

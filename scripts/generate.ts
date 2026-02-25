@@ -1,6 +1,23 @@
 import dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
 
+// Added to pass api key checks
+const hasAstra =
+  !!process.env.ASTRA_DB_API_ENDPOINT &&
+  !!process.env.ASTRA_DB_APPLICATION_TOKEN &&
+  !!process.env.ASTRA_DB_COLLECTION;
+
+const hasOpenAI = !!process.env.OPENAI_API_KEY; // needed for OpenAIEmbeddings
+
+if (!hasAstra || !hasOpenAI) {
+  console.log(
+    "Skipping embeddings generation (missing env vars). " +
+      `ASTRA: ${hasAstra ? "ok" : "missing"}, OPENAI: ${hasOpenAI ? "ok" : "missing"}`,
+  );
+  process.exit(0);
+}
+
+
 import { DocumentInterface } from "@langchain/core/documents";
 import { Redis } from "@upstash/redis";
 import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
@@ -29,20 +46,18 @@ async function generateEmbeddings() {
     .map((route): DocumentInterface => {
       const url =
         route.metadata.source
-          .replace(/\\/g, "/") // replace "\\" with "/"
+          .replace(/\\/g, "/")
           .split("/src/app")[1]
           .split("/page.tsx")[0] || "/";
 
       const pageContentTrimmed = route.pageContent
-        .replace(/^import.*$/gm, "") // remove all import statements
-        .replace(/ className=(["']).*?\1| className={.*?}/g, "") // remove all className props
-        .replace(/^\s*[\r]/gm, "") // remove empty lines
+        .replace(/^import.*$/gm, "")
+        .replace(/ className=(["']).*?\1| className={.*?}/g, "")
+        .replace(/^\s*[\r]/gm, "")
         .trim();
 
       return { pageContent: pageContentTrimmed, metadata: { url } };
     });
-
-  // console.log(routes);
 
   const routesSplitter = RecursiveCharacterTextSplitter.fromLanguage("html");
   const splitRoutes = await routesSplitter.splitDocuments(routes);
@@ -53,8 +68,6 @@ async function generateEmbeddings() {
   });
 
   const data = await dataLoader.load();
-
-  // console.log(data);
 
   const dataSplitter = RecursiveCharacterTextSplitter.fromLanguage("js");
   const splitData = await dataSplitter.splitDocuments(data);
@@ -71,12 +84,9 @@ async function generateEmbeddings() {
   const posts = (await postLoader.load())
     .filter((post) => post.metadata.source.endsWith(".mdx"))
     .map((post): DocumentInterface => {
-      const pageContentTrimmed = post.pageContent.split("---")[1]; // only want the frontmatter
-
+      const pageContentTrimmed = post.pageContent.split("---")[1];
       return { pageContent: pageContentTrimmed, metadata: post.metadata };
     });
-
-  // console.log(posts);
 
   const postSplitter = RecursiveCharacterTextSplitter.fromLanguage("markdown");
   const splitPosts = await postSplitter.splitDocuments(posts);
