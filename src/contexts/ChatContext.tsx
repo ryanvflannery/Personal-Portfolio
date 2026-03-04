@@ -12,7 +12,7 @@ interface Props {
 }
 
 export function ChatProvider({ children }: Props) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const toggleChatbot = () => {
     setIsVisible(!isVisible);
